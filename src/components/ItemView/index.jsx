@@ -1,12 +1,12 @@
 import React from "react";
 import { Dropdown, Flex, TextField, Button } from "monday-ui-react-core";
 import "./styles.css";
-import { useItemViewForm, useItemViewState } from "../../hooks";
+import { useItemViewForm } from "../../hooks";
 import { Controller } from "react-hook-form";
+import { ItemViewContext } from "../../contexts/item-view-form/context";
 
 const NewItemView = () => {
-  const { itemViewState } = useItemViewState();
-
+  const itemViewState = React.useContext(ItemViewContext);
   const { onSubmit, control, errors, isLoading } =
     useItemViewForm(itemViewState);
 

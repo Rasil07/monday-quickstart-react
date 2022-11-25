@@ -4,6 +4,7 @@ import "monday-ui-react-core/dist/main.css";
 //Explore more Monday React Components here: https://style.monday.com/
 
 import { ItemView } from "./components";
+import { ItemViewProvider } from "./contexts/item-view-form/context";
 
 class App extends React.Component {
   constructor(props) {
@@ -25,7 +26,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <ItemView />
+        <ItemViewProvider>
+          <ItemView />
+        </ItemViewProvider>
       </div>
     );
   }
