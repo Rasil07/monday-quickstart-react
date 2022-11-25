@@ -64,6 +64,7 @@ export const ItemViewProvider = ({ children }) => {
         name: state.name,
         description: state.description,
         status: state.status,
+        dispatch,
       }}
     >
       {children}

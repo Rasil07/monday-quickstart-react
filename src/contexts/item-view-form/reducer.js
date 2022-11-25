@@ -1,9 +1,9 @@
 import ACTIONS from "./action";
 
 export const initialState = {
-  name: "Test Title",
-  status: "Stuck",
-  description: "Desc",
+  name: "",
+  status: "",
+  description: "",
   itemId: "",
   boardId: "",
 };
