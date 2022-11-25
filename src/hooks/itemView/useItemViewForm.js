@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import monday from "../../monday";
 
 export const useItemViewForm = (itemViewState) => {
+  const [isLoading, setLoading] = React.useState(false);
   const {
     register,
     unregister,
@@ -15,6 +16,8 @@ export const useItemViewForm = (itemViewState) => {
   } = useForm();
 
   const onSubmit = handleSubmit(async (formData) => {
+    if (isLoading) return;
+    setLoading(true);
     const get_board_columns = `query { boards(ids: ${itemViewState.boardId}) { columns { id title } } }`;
     monday
       .api(get_board_columns)
@@ -46,19 +49,16 @@ export const useItemViewForm = (itemViewState) => {
           });
         });
       })
-      .catch((err) => console.log({ err }));
+      .catch((err) => console.log({ err }))
+      .finally(() => {
+        setLoading(false);
+      });
   });
 
   React.useEffect(() => {
-    if (itemViewState.name) {
-      setValue("name", itemViewState.name);
-    }
-    if (itemViewState.description) {
-      setValue("description", itemViewState.description);
-    }
-    if (itemViewState.status) {
-      setValue("status", itemViewState.status);
-    }
+    setValue("name", itemViewState?.name || "");
+    setValue("description", itemViewState?.description || "");
+    setValue("status", itemViewState?.status || "");
   }, [itemViewState, setValue]);
   return {
     errors,
@@ -71,5 +71,6 @@ export const useItemViewForm = (itemViewState) => {
     handleSubmit,
     onSubmit,
     getValues,
+    isLoading,
   };
 };
