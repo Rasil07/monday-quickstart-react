@@ -1,6 +1,6 @@
 ## Overview
 
-This is a simple "Item View Form" integration in Monday.com.
+This is a simple React App "Item View Form" integration in Monday.com.
 
 ## Project setup
 
@@ -11,7 +11,7 @@ This is a simple "Item View Form" integration in Monday.com.
 
 ### Project config
 
-- add .env file with required configuration
+- add .env file with required configuration in root directory
 
 ## Run Project
 
