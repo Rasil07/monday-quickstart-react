@@ -12,12 +12,11 @@ export const ItemViewProvider = ({ children }) => {
     monday.listen("context", async (res) => {
       const itemId = res.data.itemId;
       const boardId = res.data.boardId;
-
       dispatch({ type: ACTIONS.SET_BOARD, data: boardId });
       dispatch({ type: ACTIONS.SET_ITEM_ID, data: itemId });
 
       // Fetch Item Details
-      const item_detail_query = `query { items (ids: ${itemId}) { name column_values { id text title value} } }`;
+      const item_detail_query = `query { items (ids: ${itemId}) { name  column_values { id text title value} } }`;
 
       await monday
         .api(item_detail_query)
@@ -25,6 +24,7 @@ export const ItemViewProvider = ({ children }) => {
           const item = res.data.items[0];
           const columnValues = item.column_values;
           const name = item.name;
+
           const status =
             columnValues.find((columnValue) => columnValue.title === "Status")
               ?.text ?? "";
