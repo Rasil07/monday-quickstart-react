@@ -9,15 +9,7 @@ This is a simple React App "Item View Form" integration in Monday.com.
 - run git clone git@github.com:Rasil07/monday-quickstart-react.git
 - run npm install
 
-### Project config
-
-- add .env file with required configuration in root directory
-
-## Run Project
-
-- npm start
-
-## Configure Monday App
+### Configure Monday App
 
 1. Open monday.com, login to your account and go to a "Developers" section.
 2. Create a new "QuickStart View Example App"
@@ -27,6 +19,14 @@ This is a simple React App "Item View Form" integration in Monday.com.
 6. Click "Boards" button and choose one of the boards with some data in it.
 7. Click "Preview button"
 8. Enjoy the Quickstart View Example app!
+
+### Project config
+
+- add .env file with required configuration in root directory
+
+## Run Project
+
+- npm start
 
 ## Release your app
 
